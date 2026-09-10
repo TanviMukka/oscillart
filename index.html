@@ -11,13 +11,13 @@
         <input type="text" id="input">
         <!--submit button which registers the input-->
         <button id="submit" onclick="handle()">submit me</button>
+        <!--recording button-->
+        <button id="record" onclick="toggle()">start recording</button>
         <!--allows user to select the color of the waves-->
         <input type="color" id="color" value="#ff0000">
         <!--allows the user to change the volume-->
         <input type="range" min="1" max="100" value="100" id="vol-slider">
-        <canvas id="canvas">
-            
-        </canvas>
+        <canvas id="canvas"></canvas>
     </div>
     <script src="main.js"></script>
 </body>
