@@ -6,10 +6,11 @@ var height = ctx.canvas.height;
 var reset = false;
 var timepernote = 0;
 var length = 0;
-const input = document.getElementById('input');
+const input = document.getElementById("input");
+const color_picker = document.getElementById("color");
+const vol_slider = document.getElementById("vol-slider");
 
 // main variables for music and drawing waves
-var amplitude = 40;
 var interval = null;
 var counter = 0;
 var x = 0;
@@ -42,15 +43,19 @@ notenames.set("B", 493.9);
 function frequency(pitch) {
     freq = pitch/10000;
 
-    gainNode.gain.setValueAtTime(100, audioCtx.currentTime);
+    gainNode.gain.setValueAtTime(vol_slider.value, audioCtx.currentTime);
     oscillator.frequency.setValueAtTime(pitch, audioCtx.currentTime);
-    gainNode.gain.setValueAtTime(0, audioCtx.currentTime + (timepernote / 1000) - 0.1);
+
+    setTimeout(() => {
+        gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+    }, timepernote - 10);
 }
 
 // function which draws the line
 function line() {
-    y = height/2 + (amplitude * Math.sin(2 * Math.PI * freq * x * (0.5 * length)));
+    y = height/2 + ((vol_slider.value/100) * 40 * Math.sin(2 * Math.PI * freq * x * (0.5 * length)));
     ctx.lineTo(x, y);
+    ctx.lineWidth = 3;
     ctx.stroke();
     x += 1;
     counter++;
@@ -58,6 +63,9 @@ function line() {
     if (counter > (timepernote / 20)) {
         clearInterval(interval);
     }
+
+    ctx.strokeStyle = color_picker.value;
+    ctx.stroke();
 }
 
 // function which draws the sine wave
