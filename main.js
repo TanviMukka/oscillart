@@ -60,7 +60,7 @@ function frequency(pitch) {
 function line() {
     y = height/2 + ((vol_slider.value/100) * 40 * Math.sin(2 * Math.PI * freq * x * (0.5 * length)));
     ctx.lineTo(x, y);
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 1;
     ctx.stroke();
     x += 1;
     counter++;

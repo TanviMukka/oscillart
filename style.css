@@ -7,10 +7,29 @@
 
 #container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 30px;
+}
+
+.header {
+    margin: 10px;
+}
+
+#explaination {
+    margin: 0;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
 }

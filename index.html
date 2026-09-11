@@ -7,17 +7,37 @@
 </head>
 <body>
     <div id="container">
-        <!--gets the input from user-->
-        <input type="text" id="input">
-        <!--submit button which registers the input-->
-        <button id="submit" onclick="handle()">submit me</button>
-        <!--recording button-->
-        <button id="record" onclick="toggle()">start recording</button>
-        <!--allows user to select the color of the waves-->
-        <input type="color" id="color" value="#ff0000">
-        <!--allows the user to change the volume-->
-        <input type="range" min="1" max="100" value="100" id="vol-slider">
+        <div class="header">
+            <h1 id="heading">welcome to oscillart!</h1>
+            <p id="tagline">enter the notes of any song to turn them into beautiful sine waves</p>
+        </div>
         <canvas id="canvas"></canvas>
+        <div class="control-group">
+            <!--gets the input from user-->
+            <p id="explaination">enter the notes in this box (capital letters)</p>
+            <input type="text" id="input">
+        </div>
+        <div class="control-group">
+            <!--submit button which registers the input-->
+            <p id="explaination">click this button to submit the notes entered</p>
+            <button id="submit" onclick="handle()">submit</button>
+        </div>
+        <div class="control-group">
+            <!--recording button-->
+            <p id="explaination">click this button to record the sine waves drawn</p>
+            <button id="record" onclick="toggle()">start recording</button>
+        </div>
+        <div class="control-group">
+            <!--allows user to select the color of the waves-->
+            <p id="explaination">click this button and select a hue you would like</p>
+            <input type="color" id="color" value="#ff0000">
+        </div>
+        <div class="control-group">
+            <!--allows the user to change the volume-->
+            <p id="explaination">move the dial on this slider to change the volume</p>
+            <input type="range" min="1" max="100" value="100" id="vol-slider">
+        </div>
+        <p>built by tanvi using hack club's oscillart build jam</p>
     </div>
     <script src="main.js"></script>
 </body>
